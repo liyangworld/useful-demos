@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页图表</title>
+
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            color:#fff;
+        }
+        p{
+            margin:0;
+            padding:0;
+        }
+        ol{
+            margin:0;
+            padding-left:30px;
+        }
+        .container{
+            height:100%;
+        }
+        .clearfix::after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .layout{
+            float: left;
+            height:100%;
+        }
+        .layout , .wrap{
+            box-sizing: border-box;
+        }
+        .layout-left,.layout-right{
+            width:30%;
+            padding:10px 10px 0;
+        }
+        .layout-center{
+            width:40%;
+            padding-top:10px;
+        }
+
+        .layout-left .wrap{
+            width:100%;
+            height: 25%;
+            padding-bottom: 10px;
+        }
+        .layout .wrap >div{
+            background-color: #4E4E4E;
+            width:100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .layout-right .wrap{
+            width:100%;
+            height: 20%;
+            padding-bottom: 10px;
+        }
+        .layout-center .wrap{
+            width:100%;
+            padding-bottom:10px;
+        }
+        .layout-center .wrap1{
+            height:40%;
+        }
+        .layout-center .wrap2{
+            height:60%;
+        }
+        .title{
+            box-sizing: border-box;
+            height:22px;
+            line-height:22px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom:1px dashed #ccc;
+            color:#eee;
+        }
+        #right01{
+            overflow: hidden;
+        }
+        #center02{
+            width:100%;
+            height:40%;
+        }
+        .description{
+            padding:0 10px 10px;
+            font-size:14px;
+            line-height: 1.5em;
+        }
+
+
+        .band-wrap{
+            overflow: hidden;
+            height:100%;
+        }
+        ol.band{
+            position: relative;
+            top:0;
+            font-size:14px;
+            line-height: 1.5em;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container clearfix">
+    <div class="layout layout-left">
+        <div class="wrap"><div id="left01"></div></div>
+        <div class="wrap"><div id="left02"></div></div>
+        <div class="wrap"><div id="left03"></div></div>
+        <div class="wrap"><div id="left04"></div></div>
+    </div>
+    <div class="layout layout-center">
+        <div class="wrap wrap1"><div id="center01"></div></div>
+        <div class="wrap wrap2">
+            <div>
+                <div id="center02"></div>
+                <div class="description">
+                    <p>此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字此处为说明文字。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout layout-right">
+        <div class="wrap">
+            <div id="right01">
+                <p class="title">异常通知滚动板</p>
+                <div class="band-wrap">
+                    <ol class="band">
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                        <li>异常通知滚动板异常通知滚动板</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+        <div class="wrap"><div id="right02"></div></div>
+        <div class="wrap"><div id="right03"></div></div>
+        <div class="wrap"><div id="right04"></div></div>
+        <div class="wrap"><div id="right05"></div></div>
+    </div>
+</div>
+<script src="./js/jquery-2.1.1.min.js"></script>
+<script src="./js/echarts_dev.js"></script>
+<script src="./js/dark.js"></script>
+<script>
+    $(function () {
+
+        //-----------------------------滚动板----------------------开始-----------------
+        +function () {
+            var bandWrapHeight = $('.band-wrap').height() - 22;
+            var bandHeight = $('.band').height();
+
+            function autoPlay() {
+                $('.band').animate({top:-bandHeight},10000,'linear',function () {
+                    $(this).css({top:bandWrapHeight});
+                    autoPlay();
+                });
+            }
+            if (bandHeight > bandWrapHeight){
+                autoPlay();
+                $('.band').hover(function () {
+                    $('.band').stop();
+                },function () {
+                    autoPlay();
+                });
+            }
+        }();
+        //-----------------------------滚动板----------------------结束-----------------
+
+        //-----------------------------左1----------------------开始-----------------
+        var left01 = echarts.init(document.getElementById('left01'),'dark');
+        var left01_option = {
+            title: {
+                text: '预订指标'
+            },
+            tooltip: {},
+            legend: {
+                data: ['请求总量','下单成功率','下单支付率','下单异常率'],
+                right:10
+            },
+            xAxis: {
+                data: ["7月31日", "8月1日", "8月2日", "8月3日", "8月4日", "8月5日" , "8月6日"]
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    min: 0,
+                    position: 'left'
+                },
+                {
+                    type: 'value',
+                    min: 1.5,
+                    max:4.0,
+                    position: 'right',
+                    axisLabel: {
+                        formatter: '{value} %'
+                    },
+                    splitLine:{
+                        show:false
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '请求总量',
+                    type: 'bar',
+                    barWidth:'40%',
+                    data: [7500, 6800, 8100, 8800, 7200, 9000,7600]
+                },
+                {
+                    name: '下单成功率',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [3.2, 3.2, 3.0, 3.4, 3.1, 3.3,3.2]
+                },
+                {
+                    name: '下单支付率',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [2.6, 2.4, 2.8, 2.4, 2.5, 2.4,2.7]
+                },
+                {
+                    name: '下单异常率',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'bottom',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [2.3, 2.2, 2.4, 2.2, 2.1, 2.3,2.4]
+                }
+            ]
+        };
+        left01.setOption(left01_option);
+        //-----------------------------左1----------------------结束-----------------
+        //-----------------------------左2----------------------开始-----------------
+        var left02 = echarts.init(document.getElementById('left02'),'dark');
+        var left02_option = {
+            title: {
+                text: '活动占比'
+            },
+            tooltip: {},
+            grid:{
+                top:40,
+            },
+            legend: {
+                data: ['正价','活动','活动占比'],
+                right:10
+            },
+            xAxis: {
+                data: ["7月31日", "8月1日", "8月2日", "8月3日", "8月4日", "8月5日" , "8月6日"]
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    min: 10000,
+                    position: 'left'
+                },
+                {
+                    type: 'value',
+                    min: 0,
+                    max:100,
+                    position: 'right',
+                    axisLabel: {
+                        formatter: '{value} %'
+                    },
+                    splitLine:{
+                        show:false
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '正价',
+                    type: 'bar',
+                    barWidth:'20%',
+                    data: [19000, 20000, 19500, 21500, 19000, 21000,20000]
+                },
+                {
+                    name: '活动',
+                    type: 'bar',
+                    barWidth:'20%',
+                    data: [33000, 31000, 30000, 31000, 30000, 31500,30000]
+                },
+                {
+                    name: '活动占比',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [64, 62, 60, 61, 60, 62,60]
+                }
+            ]
+        };
+        left02.setOption(left02_option);
+        //-----------------------------左2----------------------结束-----------------
+        //-----------------------------左3----------------------开始-----------------
+        var left03 = echarts.init(document.getElementById('left03'),'dark');
+        var left03_option = {
+            title: {
+                text: '高星POI指标'
+            },
+            tooltip: {},
+            legend: {
+                data: ['支付订单量','支付','预定','退款'],
+                right:10
+            },
+            xAxis: {
+                data: ["7月31日", "8月1日", "8月2日", "8月3日", "8月4日", "8月5日" , "8月6日"]
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    min: 0,
+                    position: 'left'
+                },
+                {
+                    type: 'value',
+                    min: 0,
+                    max:100,
+                    position: 'right',
+                    axisLabel: {
+                        formatter: '{value} %'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '支付订单量',
+                    type: 'bar',
+                    barWidth:'40%',
+                    data: [7500, 6800, 8100, 8800, 7200, 9000,7600]
+                },
+                {
+                    name: '支付',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [70, 72, 70, 74, 71, 73,72]
+                },
+                {
+                    name: '预定',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [99, 98, 90, 95, 96, 92,97]
+                },
+                {
+                    name: '退款',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [18, 20, 17, 23, 20, 18,20]
+                }
+            ]
+        };
+        left03.setOption(left03_option);
+        //-----------------------------左3----------------------结束-----------------
+        //-----------------------------左4----------------------开始-----------------
+        var left04 = echarts.init(document.getElementById('left04'),'dark');
+        var left04_option = JSON.parse(JSON.stringify(left02_option));
+        left04_option.title.text = '产量占比';
+        //var left04_option = Object.assign({},left02_option,{title: {text: '产量占比'}});
+        left04.setOption(left04_option);
+        //-----------------------------左4----------------------结束-----------------
+
+        //-----------------------------中1----------------------开始-----------------
+        var center01 = echarts.init(document.getElementById('center01'),'dark');
+        var center01_option = {
+            title: {
+                text: '如家正价'
+            },
+            tooltip: {},
+            legend: {
+                data: ['支付订单量','支转','预定','退款'],
+                right:10
+            },
+            xAxis: {
+                data: ["7月31日", "8月1日", "8月2日", "8月3日", "8月4日", "8月5日" , "8月6日"]
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    min: 0,
+                    position: 'left'
+                },
+                {
+                    type: 'value',
+                    min: 0,
+                    max:100,
+                    position: 'right',
+                    axisLabel: {
+                        formatter: '{value} %'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '支付订单量',
+                    type: 'bar',
+                    barWidth:'40%',
+                    data: [7500, 6800, 8100, 8800, 7200, 9000,7600]
+                },
+                {
+                    name: '支转',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [70, 72, 70, 74, 71, 73,72]
+                },
+                {
+                    name: '预定',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [99, 98, 90, 95, 96, 92,97]
+                },
+                {
+                    name: '退款',
+                    type: 'line',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            formatter:'{c} %'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 2,
+                            shadowColor: 'rgba(0,0,0,0.4)',
+                            shadowBlur: 5,
+                            shadowOffsetY: 5
+                        }
+                    },
+                    yAxisIndex:1,
+                    data: [18, 20, 17, 23, 20, 18,20]
+                }
+            ]
+        };
+        center01.setOption(center01_option);
+        //-----------------------------中1----------------------结束-----------------
+
+        //-----------------------------中2----------------------开始-----------------
+        var center02 = echarts.init(document.getElementById('center02'),'dark');
+        var center02_option = {
+            title: {
+                text: '中央预订渠道占比',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['携程', '艺龙', '其他中小渠道', '中央预订']
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        { value: 335, name: '携程' },
+                        { value: 234, name: '艺龙' },
+                        { value: 135, name: '其他中小渠道' },
+                        { value: 1548, name: '中央预订' }
+                    ],
+                    label: {
+                        normal: {
+                            formatter: '{b}\n{d}%'
+                        }
+                    },
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        center02.setOption(center02_option);
+        //-----------------------------中2----------------------结束-----------------
+
+        //-----------------------------右1----------------------开始-----------------
+        var right02 = echarts.init(document.getElementById('right02'),'dark');
+        var right02_option = JSON.parse(JSON.stringify(left02_option));
+        right02_option.title.text = '预定失败率';
+        //var right02_option = Object.assign({},left02_option,{title: {text: '预定失败率'}});
+        right02.setOption(right02_option);
+        //-----------------------------右1----------------------结束-----------------
+        //-----------------------------右2----------------------开始-----------------
+        var right03 = echarts.init(document.getElementById('right03'),'dark');
+        var right03_option = JSON.parse(JSON.stringify(left02_option));
+        right03_option.title.text = '支付失败率';
+        //var right03_option = Object.assign({},left02_option,{title: {text: '支付失败率'}});
+        right03.setOption(right03_option);
+        //-----------------------------右2----------------------结束-----------------
+        //-----------------------------右3----------------------开始-----------------
+        var right04 = echarts.init(document.getElementById('right04'),'dark');
+        var right04_option = JSON.parse(JSON.stringify(left02_option));
+        right04_option.title.text = '取消失败率';
+        //var right04_option = Object.assign({},left02_option,{title: {text: '取消失败率'}});
+        right04.setOption(right04_option);
+        //-----------------------------右3----------------------结束-----------------
+        //-----------------------------右4----------------------开始-----------------
+        var right05 = echarts.init(document.getElementById('right05'),'dark');
+        var right05_option = JSON.parse(JSON.stringify(center01_option));
+        right05_option.title.text = 'PMS性能实况';
+        //var right05_option = Object.assign({},center01_option,{title: {text: 'PMS性能实况'}});
+        right05.setOption(right05_option);
+        //-----------------------------右4----------------------结束-----------------
+
+
+        window.onresize=function () {
+            left01.resize();
+            left02.resize();
+            left03.resize();
+            left04.resize();
+            center01.resize();
+            center02.resize();
+
+            right02.resize();
+            right03.resize();
+            right04.resize();
+            right05.resize();
+        };
+
+
+
+    });
+</script>
+</body>
+</html>

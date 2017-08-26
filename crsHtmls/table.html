@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> CRS 样式框架 </title>
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="./img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/font-awesome.min.css">
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-production-plugins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-skins.min.css">
+
+    <link rel="stylesheet" href="./css/your_style.css">
+
+</head>
+
+<body class="smart-style-4 desktop-detected">
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <img src="./img/logo.png" alt="SmartAdmin">
+        </span>
+    </div>
+
+    <section id="top-right">
+        <div class="pull-right">
+
+            <div id="hide-menu" class="btn-header pull-right">
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="折叠/打开菜单"><i class="fa fa-reorder"></i></a> </span>
+            </div>
+
+            <div id="logout" class="btn-header transparent pull-right">
+                <span> <a href="#" title="退出" data-action="userLogout" data-logout-msg="确认是否离开此页面，将注销登录！"><i class="fa fa-sign-out"></i></a> </span>
+            </div>
+
+        </div>
+    </section>
+</header>
+
+<aside id="left-panel">
+    <nav>
+        <ul>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-rebel"></i> <span class="menu-item-parent">CRS 主要页面</span></a>
+                <ul>
+                    <li>
+                        <a href="./index.html">基本页面</a>
+                    </li>
+                    <li>
+                        <a href="./formEdit.html">表单提交页面</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="active open">
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-fire"></i> <span class="menu-item-parent">UI 基本元素</span></a>
+                <ul style="display: block;">
+                    <li class="active">
+                        <a href="./table.html">表格</a>
+                    </li>
+                    <li>
+                        <a href="./form.html">表单</a>
+                    </li>
+                    <li>
+                        <a href="./tabs.html">Tab 标签页</a>
+                    </li>
+                    <li>
+                        <a href="./accordion.html">手风琴</a>
+                    </li>
+                    <li>
+                        <a href="./pop.html">弹出框</a>
+                    </li>
+                    <li>
+                        <a href="./calendar.html">日历</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-code"></i> <span class="menu-item-parent">代码片段</span></a>
+                <ul>
+                    <li>
+                        <a href="./codeSnippet.html">公共组件代码片段</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+
+</aside>
+
+<div id="main" role="main">
+
+    <div id="content">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="page-title txt-color-blueDark">
+                    UI 基本元素
+                    <span> > 表格 </span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="demo-wrap">
+            <div class="demo-header">1. 有数据时</div>
+            <div class="demo-content">
+                <div class="data-table">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>酒店编号</th>
+                                <th>酒店名称</th>
+                                <th>酒店地址</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>00001</td>
+                                <td>如家快捷酒店</td>
+                                <td>漕宝路124号</td>
+                                <td><a href="#">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>00002</td>
+                                <td>如家快捷酒店</td>
+                                <td>漕宝路124号</td>
+                                <td><a href="#">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>00003</td>
+                                <td>如家快捷酒店</td>
+                                <td>漕宝路124号</td>
+                                <td><a href="#">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>00004</td>
+                                <td>如家快捷酒店</td>
+                                <td>漕宝路124号</td>
+                                <td><a href="#">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>00005</td>
+                                <td>如家快捷酒店</td>
+                                <td>漕宝路124号</td>
+                                <td><a href="#">查看详情</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="demo-wrap">
+            <div class="demo-header">2. 没有数据时</div>
+            <div class="demo-content">
+                <div class="data-table">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>酒店编号</th>
+                            <th>酒店名称</th>
+                            <th>酒店地址</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="table-no-data text-center">
+                        <span style="color:grey">没有数据！</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="demo-wrap">
+            <div class="demo-header">3. 多选表格</div>
+            <div class="demo-content">
+                <div class="data-table">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>
+                                <label class="table-checkbox">
+                                    <input type="checkbox" id="checkboxAll">
+                                </label>
+                            </th>
+                            <th>序号</th>
+                            <th>酒店编号</th>
+                            <th>酒店名称</th>
+                            <th>酒店地址</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <td>
+                                <label class="table-checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td>1</td>
+                            <td>00001</td>
+                            <td>如家快捷酒店</td>
+                            <td>漕宝路124号</td>
+                            <td><a href="#">查看详情</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td>2</td>
+                            <td>00002</td>
+                            <td>如家快捷酒店</td>
+                            <td>漕宝路124号</td>
+                            <td><a href="#">查看详情</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td>3</td>
+                            <td>00003</td>
+                            <td>如家快捷酒店</td>
+                            <td>漕宝路124号</td>
+                            <td><a href="#">查看详情</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td>4</td>
+                            <td>00004</td>
+                            <td>如家快捷酒店</td>
+                            <td>漕宝路124号</td>
+                            <td><a href="#">查看详情</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="table-checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td>5</td>
+                            <td>00005</td>
+                            <td>如家快捷酒店</td>
+                            <td>漕宝路124号</td>
+                            <td><a href="#">查看详情</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="./js/jquery-2.1.1.min.js"></script>
+<script src="./js/jquery-ui-1.10.3.min.js"></script>
+<script src="./js/app.config.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/SmartNotification.min.js"></script>
+<script src="./js/app.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        pageSetUp();
+
+        //-------多选表格的事件-------------开始---------------
+        var tableBody = $("#checkboxAll").closest('table').find('tbody');
+        var checkboxes = tableBody.find(".table-checkbox input");
+        $("#checkboxAll").change(function () {
+            if($(this).prop('checked')){
+                checkboxes.prop('checked',true);
+            }else{
+                checkboxes.prop('checked',false);
+            }
+        });
+        checkboxes.change(function () {
+           if($(this).prop('checked')){
+               var allChecked = true;
+               checkboxes.each(function (index,el) {
+                   if(!$(el).prop('checked')){
+                       allChecked = false;
+                       return false;
+                   }
+               });
+               if(allChecked){$("#checkboxAll").prop('checked',true);}
+           }else{
+               $("#checkboxAll").prop('checked',false);
+           }
+        });
+        //-------多选表格的事件-------------结束---------------
+
+    });
+</script>
+</body>
+
+</html>
+
+
+

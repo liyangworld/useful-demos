@@ -1,0 +1,350 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+.padding-top-0 {
+  padding-top: 0 !important;
+}
+.padding-top-5 {
+  padding-top: 5px !important;
+}
+.padding-bottom-0 {
+  padding-bottom: 0 !important;
+}
+.padding-bottom-5 {
+  padding-bottom: 5px !important;
+}
+.padding-left-5 {
+  padding-left: 5px !important;
+}
+.padding-left-10 {
+  padding-left: 10px !important;
+}
+.padding-right-5 {
+  padding-right: 5px !important;
+}
+.padding-right-10 {
+  padding-right: 10px !important;
+}
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+.margin-top-5 {
+  margin-top: 5px !important;
+}
+.margin-bottom-0 {
+  margin-bottom: 0 !important;
+}
+.margin-bottom-5 {
+  margin-bottom: 5px !important;
+}
+.margin-left-5 {
+  margin-left: 5px !important;
+}
+.margin-left-10 {
+  margin-left: 10px !important;
+}
+.margin-right-5 {
+  margin-right: 5px !important;
+}
+.margin-right-10 {
+  margin-right: 10px !important;
+}
+.margin-right-15 {
+  margin-right: 15px !important;
+}
+/* SmartForm Bootstrap Validation */
+#extr-page h4.paragraph-header {
+  width: auto;
+}
+#extr-page .smart-form .alert {
+  margin: 4px;
+}
+#extr-page .smart-form .alert li {
+  margin-left: 14px;
+  list-style: none;
+}
+#extr-page .smart-form .alert li:before {
+  content: "\f071";
+  font-family: FontAwesome;
+  position: absolute;
+  left: 14px;
+}
+#extr-page .smart-form div + fieldset {
+  padding-top: 15px;
+}
+/******************************************定制样式ʽ*****************************/
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+    background: url(../img/mybg.png) #fff;
+}
+body {
+  min-height: 100% !important;
+}
+body:not(.menu-on-top).desktop-detected {
+  min-height: 100% !important;
+}
+#main {
+  padding-bottom: 0;
+  /*min-height: 650px;*/
+}
+#content {
+  padding-bottom: 15px;
+}
+.pagination-container {
+  height: 52px;
+}
+.table{
+    margin-bottom:0;
+}
+.data-table {
+    margin-bottom: 15px;
+}
+.tab-pane .data-table {
+    margin-bottom: 5px;
+}
+/******************************表格的查询表单************开始ʼ*****************/
+.search-form,
+.page-show-header {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+.page-show-header {
+  padding-bottom: 5px;
+}
+.search-form .options,
+.page-show-header .options {
+  padding: 0 10px;
+}
+.options .inline-wrap {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.options .inline-wrap + .inline-wrap {
+  margin-left: 10px;
+}
+.search-form select,
+.search-form input {
+  width: 160px;
+}
+.page-show-header .inline-wrap {
+  line-height: 32px;
+}
+/******************************表格的查询表单************结束*****************/
+.detailPage-header {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.detailPage-header span + span {
+  margin-left: 20px;
+}
+
+.data-table {
+  background-color: #fff;
+}
+
+.table-no-data {
+  border: 1px solid #ccc;
+  border-top-width: 0;
+  padding: 10px 0;
+  font-size: 24px;
+  background-color: #F9F9F9;
+}
+.table-pagination {
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.pagination {
+  margin: 10px 0;
+}
+.tab-pane .table-pagination {
+  background-color: #FAFAFA;
+}
+/******************************编辑提交表单************开始*****************/
+.post-form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.post-form .form-header {
+  background-color: #FAFAFA;
+  border-bottom: 1px dashed #ccc;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.post-form .form-header .title {
+  font-size: 20px;
+}
+.post-form fieldset:first-child {
+  padding-top: 10px;
+}
+.post-form .form-footer {
+  background-color: #FAFAFA;
+  border-top: 1px dashed #ccc;
+  padding: 10px 20px;
+  text-align: center;
+}
+.post-form .form-group {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+.post-form .form-group select {
+  width: 100%;
+  height: 30px;
+}
+
+.form-2-col .table label{
+    display: block;
+    line-height: 32px;
+    margin-bottom: 0;
+}
+.form-2-col .table>tbody>tr>td,
+.form-2-col .table>tbody>tr>th,
+.form-2-col .table>tfoot>tr>td,
+.form-2-col .table>tfoot>tr>th,
+.form-2-col .table>thead>tr>td,
+.form-2-col .table>thead>tr>th{
+    border-top-width: 0;
+}
+.form-2-col .table>tbody>tr +tr{
+    border-top:1px solid #ccc;
+}
+.form-2-col .table{
+    border:1px solid #ccc;
+}
+/******************************编辑提交表单************结束*****************/
+.show-form {
+  padding-top: 15px;
+  background-color: #FDFDFD;
+  border: 1px solid #ccc;
+}
+.show-form .input-like {
+  display: block;
+  padding-top: 7px;
+}
+.show-table {
+  padding: 15px;
+  background-color: #FDFDFD;
+  border: 1px solid #ccc;
+}
+.show-table .table {
+  width: 100%;
+  margin-bottom: 0;
+}
+.show-table tr td:first-child {
+  width: 40%;
+  text-align: right;
+  padding-right: 15px;
+}
+.show-table .table>tbody>tr>td,
+.show-table .table>tbody>tr>th,
+.show-table .table>tfoot>tr>td,
+.show-table .table>tfoot>tr>th,
+.show-table .table>thead>tr>td,
+.show-table .table>thead>tr>th{
+  border-top-width: 0;
+}
+
+.nav-tabs.bordered + .tab-content {
+  background-color: #fff;
+}
+.tab-pane .data-table {
+  margin-bottom: 5px;
+}
+.fc-toolbar {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.tab-pane .post-form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+/****************************** 手风琴 ************开始****************/
+.accordion-margin-10.panel-group .panel + .panel {
+  margin-top: 10px;
+}
+.accordion-dark .panel-default > .panel-heading {
+  background-color: #EAEAEA;
+}
+/****************************** 手风琴 ************结束*****************/
+/*******************酒店管理信息----商圈**********************/
+.panel-body .row:nth-child(5n) {
+  border-bottom: 1px dashed #aaa;
+}
+.panel-body .row:last-child {
+  border-bottom-width: 0;
+}
+.white-bar {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.white-bar span + span,
+.white-bar span + button,
+.white-bar button + button {
+  margin-left: 20px;
+}
+.select2-container .select2-choice .select2-arrow b:before,
+.select2-selection__arrow b:before {
+  content: '';
+}
+
+#divSmallBoxes{
+    top:40px;
+    right:10px;
+}
+.SmallBox{
+    width:240px;
+}
+.SmallBox p{
+    margin:10px 0;
+}
+
+.table-checkbox{
+    width:100%;
+    text-align: center;
+    cursor: pointer;
+    margin:0;
+}
+.table-checkbox input{
+    margin:0;
+}
+/******************* demo 所用 ***********开始***********/
+
+.demo-wrap{
+  background-color: #fff;
+  border:1px solid #ccc;
+}
+.demo-wrap + .demo-wrap{
+    margin-top:15px;
+}
+.demo-wrap .demo-header{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.demo-wrap .demo-content{
+    padding: 10px;
+}
+.demo-wrap p{
+  margin:0;
+}
+/******************* demo 所用 ***********结束***********/

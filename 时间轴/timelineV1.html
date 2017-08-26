@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间轴</title>
+	
+	<style>
+		html,body{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			font-size: 14px;
+		}
+		p{
+			margin:0;
+			padding: 0;
+		}
+
+		.wrap{
+			width:800px;
+			padding: 20px;
+			margin:10px auto;
+			border:1px solid #F2F2F2;
+		}
+		.bg-gray{
+			background-color: #F0EFF4;
+		}
+		.bg-yellow{
+			background-color: #FFE68E;
+		}
+	</style>
+	<link rel="stylesheet" href="./css/tline.css">
+</head>
+
+<body>
+	<p style="text-align: center;">时间轴</p>
+	<div class="wrap bg-gray">
+		<div class="tline-box">
+			<div class="tline-toolbox">
+				<div class="tline-orderbtn" title="切换顺序">
+					<div class="tline-orderbtn-title">
+						<span>时间</span>
+					</div>
+					<div class="tline-orderbtn-icon tline-order tline-down">
+						<span></span>
+					</div>
+				</div>
+				<div class="tline-title">
+					跟踪进度
+				</div>
+			</div>
+			<ul class="tline tline-order tline-down">
+				<li class="tline-item tline-item-first">
+					<div class="tline-date">
+						<span class="day">2017-08-24</span>
+						<span class="time">16:48</span>
+						<span class="week">星期四</span>
+					</div>
+					<div class="tline-line">
+						<span class="tline-bgline"></span>
+						<span class="tline-icon"></span>
+					</div>
+					<div class="tline-content-wrap">
+						<div class="tline-content">
+							离开[山东_临沂运转中心] 发往[上海基地_陆运中转站]
+						</div>
+					</div>
+				</li>
+				<li class="tline-item">
+					<div class="tline-date">
+						<span class="day">2017-08-24</span>
+						<span class="time">16:48</span>
+						<span class="week">星期四</span>
+					</div>
+					<div class="tline-line">
+						<span class="tline-bgline"></span>
+						<span class="tline-icon"></span>
+					</div>
+					<div class="tline-content-wrap">
+						<div class="tline-content">
+							离开[山东_临沂运转中心] 发往[上海基地_陆运中转站]<br/>
+							离开[山东_临沂运转中心] 发往[上海基地_陆运中转站]
+						</div>
+					</div>
+				</li>
+				<li class="tline-item">
+					<div class="tline-date">
+						<span class="day">2017-08-24</span>
+						<span class="time">16:48</span>
+						<span class="week">星期四</span>
+					</div>
+					<div class="tline-line">
+						<span class="tline-bgline"></span>
+						<span class="tline-icon"></span>
+					</div>
+					<div class="tline-content-wrap">
+						<div class="tline-content">
+							离开[山东_临沂运转中心] 发往[上海基地_陆运中转站]
+						</div>
+					</div>
+				</li>
+				<li class="tline-item tline-item-checked">
+					<div class="tline-date">
+						<span class="day">2017-08-24</span>
+						<span class="time">16:48</span>
+						<span class="week">星期四</span>
+					</div>
+					<div class="tline-line">
+						<span class="tline-bgline"></span>
+						<span class="tline-icon"></span>
+					</div>
+					<div class="tline-content-wrap">
+						<div class="tline-content">
+							离开[山东_临沂运转中心] 发往[上海基地_陆运中转站]
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+
+	<script>
+		function toggleOrder(target) {
+			var downEls = target.parentNode.parentNode.getElementsByClassName('tline-order');
+			if (downEls) {
+				for (var i = 0; i < downEls.length; i++) {
+					var downFlag = downEls[i].className.indexOf('tline-down') < 0 ? false : true;
+					if (downFlag) {
+						downEls[i].className = downEls[i].className.replace('tline-down','tline-up');
+					}else{
+						downEls[i].className = downEls[i].className.replace('tline-up','tline-down');
+					}
+				}
+			}
+		}
+		window.onload = function () {
+			var orderBtns = document.getElementsByClassName('tline-orderbtn'); 
+			for (var i = 0; i < orderBtns.length; i++) {
+				orderBtns[i].onclick = function(){
+					toggleOrder(this);
+				};
+			}
+
+		};
+	</script>
+	
+</body>
+</html>

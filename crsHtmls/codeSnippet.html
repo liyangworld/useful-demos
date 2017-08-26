@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> CRS 样式框架 </title>
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="./img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/font-awesome.min.css">
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-production-plugins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-skins.min.css">
+
+    <link rel="stylesheet" href="./css/your_style.css">
+
+    <style>
+        .component-wrap {
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .component-wrap + .component-wrap {
+            margin-top: 13px;
+        }
+
+        .component-header {
+            height: 36px;
+            line-height: 36px;
+            background-color: #3E9BED;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        .component-header a {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .component-content {
+            border-top: 1px solid #ccc;
+            padding: 9px 10px;
+            display: none;
+        }
+
+        .component-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .component-content .img-responsive {
+            margin-bottom: 9px;
+        }
+
+        .component-content .img-responsive:last-child {
+            margin-bottom: 0;
+        }
+
+        .img-responsive {
+            border: 3px solid #0f0;
+        }
+
+        .img-responsive img {
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body class="smart-style-4 desktop-detected">
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <img src="./img/logo.png" alt="SmartAdmin">
+        </span>
+    </div>
+
+    <section id="top-right">
+        <div class="pull-right">
+
+            <div id="hide-menu" class="btn-header pull-right">
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="折叠/打开菜单"><i class="fa fa-reorder"></i></a> </span>
+            </div>
+
+            <div id="logout" class="btn-header transparent pull-right">
+                <span> <a href="#" title="退出" data-action="userLogout" data-logout-msg="确认是否离开此页面，将注销登录！"><i class="fa fa-sign-out"></i></a> </span>
+            </div>
+
+        </div>
+    </section>
+</header>
+
+<aside id="left-panel">
+    <nav>
+        <ul>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-rebel"></i> <span class="menu-item-parent">CRS 主要页面</span></a>
+                <ul>
+                    <li>
+                        <a href="./index.html">基本页面</a>
+                    </li>
+                    <li>
+                        <a href="./formEdit.html">表单提交页面</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-fire"></i> <span class="menu-item-parent">UI 基本元素</span></a>
+                <ul>
+                    <li>
+                        <a href="./table.html">表格</a>
+                    </li>
+                    <li>
+                        <a href="./form.html">表单</a>
+                    </li>
+                    <li>
+                        <a href="./tabs.html">Tab 标签页</a>
+                    </li>
+                    <li>
+                        <a href="./accordion.html">手风琴</a>
+                    </li>
+                    <li>
+                        <a href="./pop.html">弹出框</a>
+                    </li>
+                    <li>
+                        <a href="./calendar.html">日历</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="active open">
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-code"></i> <span class="menu-item-parent">代码片段</span></a>
+                <ul style="display: block;">
+                    <li class="active">
+                        <a href="./codeSnippet.html">公共组件代码片段</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+
+</aside>
+
+<div id="main" role="main">
+
+    <div id="content">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="page-title txt-color-blueDark">
+                    <i class="fa fa-table fa-fw "></i>
+                    代码片段
+                    <span> > 公共组件代码片段 </span>
+                </h1>
+            </div>
+        </div>
+
+        <!--*************************** 1. 整体说明*****************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="basic">1. 整体说明</a>
+            </div>
+            <div class="component-content">
+                <p>1. 整个项目中已引入 jQuery 和 bootstrap 相关的样式与js文件，不用再在页面中单独引用了。</p>
+                <p>2. 每个页面都以 &lt;div id="content"&gt;&lt;/div&gt; 作为根元素。如：</p>
+                <pre>
+&lt;div id="content">
+        在此处编辑页面内容，如头部面包屑、表格等。
+&lt;/div>
+</pre>
+                <p>3. 以下结构的样式都放置在 Content/css/your_style.css 文件中。</p>
+            </div>
+        </div>
+        <!--*************************** 1. 整体说明*****************结束**********-->
+        <!--************************ 2. 每页头部面包屑**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">2. 每页头部面包屑</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_2">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_2">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_2">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/breadCrumbs_2.png" alt="每页头部面包屑" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_2">
+<pre>
+&lt;div class="row">
+    &lt;div class="col-xs-12">
+        &lt;h1 class="page-title txt-color-blueDark">
+            样式页面
+            &lt;span> > 公共样式&lt;/span>
+        &lt;/h1>
+    &lt;/div>
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 2. 每页头部面包屑**************结束**********-->
+        <!--************************ 3. 表格的条件查询表单**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">3. 表格的条件查询表单</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_3">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_3">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_3">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/table_searchForm_3.png" alt="表格的条件查询表单" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_3">
+<pre>
+&lt;div class="search-form">
+    &lt;form role="form" id="frmSearch" method="get" action='@Url.Action("RateCodeMemberRole")'>
+        &lt;!--第一行开始-->
+        &lt;div class="options clearfix">
+            &lt;div class="inline-wrap form-group">&lt;!--第一项开始-->
+                &lt;label>价格码：&lt;/label>
+                &lt;label class="input">
+                    @Html.TextBox("rateCode", (string)ViewBag.rateCode, new
+                {
+                    @class = "form-control"
+                })
+                &lt;/label>
+            &lt;/div>&lt;!--第一项结束-->
+            &lt;div class="inline-wrap form-group">&lt;!--第二项开始-->
+                &lt;label>品牌 :&lt;/label>
+                &lt;label class="input">
+                &lt;select class="form-control">
+                    &lt;option value="">所有&lt;/option>
+                &lt;/select>
+                &lt;/label>
+            &lt;/div>&lt;!--第二项结束-->
+        &lt;/div>
+        &lt;!--第一行结束-->
+        &lt;!--第二行开始-->
+        &lt;div class="options clearfix">
+            &lt;div class="inline-wrap form-group">&lt;!--第一项开始-->
+                &lt;label>价格码：&lt;/label>
+                &lt;label class="input">
+                    @Html.TextBox("rateCode", (string)ViewBag.rateCode, new
+                {
+                    @class = "form-control"
+                })
+                &lt;/label>
+            &lt;/div>&lt;!--第一项结束-->
+            &lt;div class="inline-wrap form-group">&lt;!--第二项开始-->
+                &lt;label>品牌 :&lt;/label>
+                &lt;label class="input">
+                &lt;select class="form-control">
+                    &lt;option value="">所有&lt;/option>
+                &lt;/select>
+                &lt;/label>
+            &lt;/div>&lt;!--第二项结束-->
+            &lt;div class="inline-wrap pull-right">&lt;!--按钮1开始-->
+                &lt;a class="btn btn-success" href="@Url.Action("Edit", "RateCodeManage")">&lt;i class="fa fa-plus">&lt;/i> &amp;nbsp;新增&lt;/a>
+            &lt;/div>&lt;!--按钮1结束-->
+            &lt;div class="inline-wrap pull-right">&lt;!--按钮2开始-->
+                &lt;button class="btn btn-primary" type="submit">&lt;i class="fa fa-search">&lt;/i> &amp;nbsp;查询&lt;/button>
+            &lt;/div>&lt;!--按钮2结束-->
+        &lt;/div>
+        &lt;!--第二行结束-->
+    &lt;/form>
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 3. 表格的条件查询表单**************开始**********-->
+        <!--************************ 4. 表格**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">4. 表格</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_4">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_4">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_4">
+                        <p>有数据时：</p>
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/tableHasData_4.png" alt="表格" />
+                        </div>
+                        <p style="margin-top:9px;">没有数据时：</p>
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/tableNoData_4.png" alt="表格" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_4">
+<pre>
+&lt;div class="data-table">&lt;!--这个div不能丢-->
+    &lt;table class="table table-striped table-bordered table-hover">
+        &lt;thead>
+            &lt;tr>
+                &lt;th>序号&lt;/th>
+                &lt;th>酒店编号&lt;/th>
+                &lt;th>酒店名称&lt;/th>
+                &lt;th>酒店地址&lt;/th>
+                &lt;th>操作&lt;/th>
+            &lt;/tr>
+        &lt;/thead>
+        &lt;tbody>
+            @if (hotelInfoList.Count > 0)
+            {
+                foreach (var item in hotelInfoList)
+                {
+                    &lt;tr>
+                        &lt;td>@item.rownum&lt;/td>
+                        &lt;td>@item.HotelCode&lt;/td>
+                        &lt;td>@item.HotelName&lt;/td>
+                        &lt;td>@item.HotelAddress&lt;/td>
+                        &lt;td>&lt;a href="@Url.Action("HotelDetail","DifferencesDataManage")?HotelCode=@item.HotelCode">查看详情&lt;/a>&lt;/td>
+                    &lt;/tr>
+                }
+            }
+        &lt;/tbody>
+    &lt;/table>
+    @if (hotelInfoList.Count &lt;= 0)
+    {
+        &lt;div class="table-no-data text-center">
+            &lt;span style="color:grey">没有数据！&lt;/span>
+        &lt;/div>
+    }
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 4. 表格**************结束**********-->
+        <!--************************ 5. 表格下分页**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">5. 表格下分页</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_5">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_5">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_5">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/pagination_5.png" alt="表格下分页" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_5">
+<pre>
+&lt;!--以下代码添加到 &lt;div class="data-table">&lt;/div> 外面-->
+@if (hotelInfoList.Count > 0)
+{
+    &lt;div class="table-pagination">
+        @Html.PagedListPager((IPagedList)ViewBag.PagedData, pageNumber => "/DifferencesDataManage/Hotel?pageNumber=" + pageNumber + "&pageSize=" + 10)
+    &lt;/div>
+}
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 5. 表格下分页**************结束**********-->
+        <!--************************ 6. 单列表单**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">6. 单列表单</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_6">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_6">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_6">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/postForm_6.png" alt="单列表单" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_6">
+<pre>
+&lt;form class="form-horizontal post-form" method="post" action="~/RateCodeManage/Save">
+    &lt;div class="form-header">&lt;!--头部--可不要-->
+        &lt;span class="title">新增价格码&lt;/span>
+    &lt;/div>
+    &lt;fieldset>&lt;!--内容-->
+        &lt;div class="form-group">&lt;!--第一项-->
+            &lt;label class="col-sm-4 control-label">&lt;span style="color:red">*&lt;/span> 房型代码：&lt;/label>
+            &lt;div class="col-sm-4">
+                &lt;input type="text" class="form-control" value="不可编辑" disabled />
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="form-group">&lt;!--第二项-->
+            &lt;label class="col-sm-4 control-label">&lt;span style="color:red">*&lt;/span> 房型描述：&lt;/label>
+            &lt;div class="col-sm-4">
+                &lt;input type="text" class="form-control" value="" />
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="form-group">&lt;!--第三项-->
+            &lt;label class="col-sm-4 control-label">房型英文描述：&lt;/label>
+            &lt;div class="col-sm-4">
+                &lt;input type="text" class="form-control" value="" />
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="form-group">&lt;!--第四项-->
+            &lt;label class="col-sm-4 control-label">价格码：&lt;/label>
+            &lt;div class="col-sm-4">
+                &lt;select>
+                    &lt;option value="">全部&lt;/option>
+                &lt;/select>
+            &lt;/div>
+        &lt;/div>
+    &lt;/fieldset>
+    &lt;div class="form-footer">&lt;!--底部--可不要-->
+        &lt;button class="btn btn-success" type="submit">保存&lt;/button>
+        &lt;button class="btn btn-primary" onclick="javascript:history.go(-1)" style="margin-left:20px;">返回&lt;/button>
+    &lt;/div>
+&lt;/form>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 6. 单列表单**************结束**********-->
+        <!--************************ 7. 选项卡**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">7. 选项卡</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_7">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_7">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_7">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/tabNav_7.png" alt="选项卡" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_7">
+<pre>
+&lt;ul class="nav nav-tabs bordered">&lt;!--选项卡标签部分-->
+    &lt;li class="active">&lt;a data-toggle="tab" href="#tab1">选项卡1&lt;/a>&lt;/li>
+    &lt;li>&lt;a data-toggle="tab" href="#tab2">选项卡2&lt;/a>&lt;/li>
+    &lt;li>&lt;a data-toggle="tab" href="#tab3">选项卡3&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;!--注意 id 属性前后匹配-->
+&lt;div class="tab-content padding-10">&lt;!--选项卡内容部分-->
+    &lt;div class="tab-pane fade in active" id="tab1">
+        此处编辑 选项卡1 的内容
+    &lt;/div>
+    &lt;div class="tab-pane fade in" id="tab2">
+        此处编辑 选项卡2 的内容
+    &lt;/div>
+    &lt;div class="tab-pane fade in" id="tab3">
+        此处编辑 选项卡3 的内容
+    &lt;/div>
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 7. 选项卡**************结束**********-->
+        <!--************************ 8. 手风琴**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a>8. 手风琴</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_8">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_8">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_8">
+                        <p>手风琴样式1（默认）</p>
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/accordions01_8.png" alt="手风琴" />
+                        </div>
+                        <p>手风琴样式2（有间距 .accordion-margin-10 ）</p>
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/accordions02_8.png" alt="手风琴" />
+                        </div>
+                        <p>手风琴样式3（头部暗灰色背景 .accordion-dark ）</p>
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/accordions03_8.png" alt="手风琴" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_8">
+<pre>
+&lt;div class="panel-group smart-accordion-default accordion-margin-10 accordion-dark" id="accordion">&lt;!-- 根据样式需要去除相应的class -->
+    &lt;div class="panel panel-default">&lt;!-- 折叠卡1 -->
+        &lt;div class="panel-heading">
+            &lt;h4 class="panel-title">&lt;a data-toggle="collapse" data-parent="#accordion" href="#collapse1"> &lt;i class="fa fa-lg fa-angle-down pull-right">&lt;/i> &lt;i class="fa fa-lg fa-angle-up pull-right">&lt;/i> 折叠卡1 &lt;/a>&lt;/h4>
+        &lt;/div>
+        &lt;div id="collapse1" class="panel-collapse collapse in">
+            &lt;div class="panel-body">
+                在此处编辑 折叠卡1 的内容
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="panel panel-default">&lt;!-- 折叠卡2 -->
+        &lt;div class="panel-heading">
+            &lt;h4 class="panel-title">&lt;a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed"> &lt;i class="fa fa-lg fa-angle-down pull-right">&lt;/i> &lt;i class="fa fa-lg fa-angle-up pull-right">&lt;/i> 折叠卡2 &lt;/a>&lt;/h4>
+        &lt;/div>
+        &lt;div id="collapse2" class="panel-collapse collapse">
+            &lt;div class="panel-body">
+                在此处编辑 折叠卡2 的内容
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="panel panel-default">&lt;!-- 折叠卡3 -->
+        &lt;div class="panel-heading">
+            &lt;h4 class="panel-title">&lt;a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed"> &lt;i class="fa fa-lg fa-angle-down pull-right">&lt;/i> &lt;i class="fa fa-lg fa-angle-up pull-right">&lt;/i> 折叠卡3 &lt;/a>&lt;/h4>
+        &lt;/div>
+        &lt;div id="collapse3" class="panel-collapse collapse">
+            &lt;div class="panel-body">
+                在此处编辑 折叠卡3 的内容
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 8. 手风琴**************结束**********-->
+        <!--************************ 9. 数据展示（表格）**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">9. 数据展示（表格）</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_9">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_9">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_9">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/showTable_9.png" alt="数据展示（表格）" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_9">
+<pre>
+&lt;div class="show-table">
+    &lt;table class="table">
+        &lt;tbody>
+            &lt;tr>
+                &lt;td>代码：&lt;/td>
+                &lt;td>123456&lt;/td>
+            &lt;/tr>
+            &lt;tr>
+                &lt;td>名称：&lt;/td>
+                &lt;td>测试名称&lt;/td>
+            &lt;/tr>
+            &lt;tr>
+                &lt;td>计算方式：&lt;/td>
+                &lt;td>以最低价为准&lt;/td>
+            &lt;/tr>
+        &lt;/tbody>
+    &lt;/table>
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 9. 数据展示（表格）**************结束**********-->
+        <!--************************ 10. 功能条（保存、返回）**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">10. 功能条（保存、返回）</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_10">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_10">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_10">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/whiteBar_10.png" alt="表格下分页" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_10">
+<pre>
+&lt;div class="white-bar" style="margin-bottom:15px;">&lt;!--使用时注意添加合适的上下 margin -->
+    &lt;span>酒店编号：010004 &lt;/span>
+    &lt;button class="btn btn-success">保存&lt;/button>
+    &lt;button class="btn btn-primary">返回&lt;/button>
+&lt;/div>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 10. 功能条（保存、返回）**************结束**********-->
+        <!--************************ 11. 日期选择控件 **************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">11. 日期选择控件 </a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_11">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_11">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_11">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/datePicker_11.png" alt="日期选择控件" />
+                        </div>
+                        <p>官方文档地址：<a href="http://www.bootcss.com/p/bootstrap-datetimepicker/" target="_blank">Bootstrap日期和时间表单组件</a></p>
+                    </div>
+                    <div class="tab-pane fade in" id="code_11">
+<pre>
+&lt;link href="~/Content/datetimepicker.css" rel="stylesheet" />
+&lt;input type="text" class="datePicker form-control">
+&lt;script src="~/Scripts/datetimepicker/bootstrap-datetimepicker.min.js">&lt;/script>
+&lt;script src="~/Scripts/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" charset="utf-8">&lt;/script>
+$(".datePicker").datetimepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    minView: 'month',
+    language: 'zh-CN',
+    bootcssVer: 3
+});
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 11. 日期选择控件 **************结束**********-->
+        <!--************************ 12. 两列表单**************开始**********-->
+        <div class="component-wrap">
+            <div class="component-header">
+                <a name="breadCrumbs">12. 两列表单</a>
+            </div>
+            <div class="component-content">
+                <ul class="nav nav-tabs bordered">
+                    <li class="active"><a data-toggle="tab" href="#result_12">效果</a></li>
+                    <li><a data-toggle="tab" href="#code_12">代码</a></li>
+                </ul>
+                <div class="tab-content padding-10">
+                    <div class="tab-pane fade in active" id="result_12">
+                        <div class="img-responsive">
+                            <img src="./img/stylePages/form2col_12.png" alt="两列表单" />
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="code_12">
+<pre>
+&lt;form class="form-2-col">
+    &lt;table class="table table-hover">
+        &lt;tr>
+            &lt;td>&lt;label>酒店名称：&lt;/label>&lt;/td>
+            &lt;td>
+                &lt;input type="text" class="form-control">
+            &lt;/td>
+            &lt;td>&lt;label>酒店名称（英文）：&lt;/label>&lt;/td>
+            &lt;td>
+                &lt;input type="text" class="form-control">
+            &lt;/td>
+        &lt;/tr>
+        &lt;tr>
+            &lt;td>&lt;label>酒店地址：&lt;/label>&lt;/td>
+            &lt;td>
+                &lt;input type="text" class="form-control">
+            &lt;/td>
+            &lt;td>&lt;label>酒店地址（英文）：&lt;/label>&lt;/td>
+            &lt;td>
+                &lt;input type="text" class="form-control">
+            &lt;/td>
+        &lt;/tr>
+    &lt;/table>
+&lt;/form>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--************************ 12. 两列表单**************结束**********-->
+        <!--************************ 演示组件 **************开始**********-->
+        <div style="margin:20px 0;">
+            <div class="row">
+                <div class="col-sm-4 col-sm-push-4">
+
+                </div>
+            </div>
+
+        </div>
+        <!--************************ 演示组件 **************结束**********-->
+
+    </div>
+
+</div>
+
+<script src="./js/jquery-2.1.1.min.js"></script>
+<script src="./js/jquery-ui-1.10.3.min.js"></script>
+<script src="./js/app.config.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/SmartNotification.min.js"></script>
+<script src="./js/app.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        pageSetUp();
+
+        $('.component-header').click(function () {
+            $(this).next('.component-content').slideToggle();
+        });
+
+    });
+</script>
+</body>
+
+</html>
+
+
+
